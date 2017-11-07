@@ -1,15 +1,16 @@
 package fr.iut_nantes.programmation_concurrentielle.miniprojet.exercice1.model;
 
-public class Philosophe implements Runnable{
+import fr.iut_nantes.programmation_concurrentielle.miniprojet.exercice1.Main;
 
+public class Philosophe extends Thread{
+
+    private int _id;
     private String _nom;
-    private Baguette _bGauche, _bDroite;
 
-    public Philosophe( String n, Baguette g, Baguette d )
+    public Philosophe( int id, String n )
     {
+        _id = id;
         _nom = n;
-        _bGauche = g;
-        _bDroite = d;
     }
 
     public void run()
@@ -17,21 +18,41 @@ public class Philosophe implements Runnable{
         while( true )
         {
             penser();
-            _bGauche.prendre();
-            _bDroite.prendre();
+
             manger();
-            _bDroite.relacher();
-            _bGauche.relacher();
         }
     }
 
     final void manger()
     {
-        System.out.println( _nom + " mange." );
+        try
+        {
+            Main.moniteur.mange(_id);
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException e)
+        {
+            e.printStackTrace();
+            System.exit(-1);
+        }
     }
 
     final void penser()
     {
-        System.out.println( _nom + " pense." );
+        try
+        {
+            Main.moniteur.pose(_id);
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException e)
+        {
+            e.printStackTrace();
+            System.exit(-1);
+        }
     }
+
+    public String get_nom() {
+        return _nom;
+    }
+
 }
