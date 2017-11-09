@@ -28,6 +28,14 @@
           </archive>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <configuration>
+          <mainClass>fr.iut_nantes.programmation_concurrentielle.miniprojet.exercice1.Main</mainClass>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
