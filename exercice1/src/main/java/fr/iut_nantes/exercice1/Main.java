@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        final String[] noms = {"Platon", "Socrate", "Aristote", "Diogène", "Sénèque"};
+        final String[] noms = {"Platon", "Socrate", "Aristote", "Diogene", "Seneque"};
 
         table = new Philosophe[5];
         moniteur = new Moniteur();
