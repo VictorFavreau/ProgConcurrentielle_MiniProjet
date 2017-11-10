@@ -1,7 +1,7 @@
-package fr.iut_nantes.programmation_concurrentielle.miniprojet.exercice1;
+package fr.iut_nantes.exercice1;
 
-import fr.iut_nantes.programmation_concurrentielle.miniprojet.exercice1.model.Moniteur;
-import fr.iut_nantes.programmation_concurrentielle.miniprojet.exercice1.model.Philosophe;
+import fr.iut_nantes.exercice1.model.Moniteur;
+import fr.iut_nantes.exercice1.model.Philosophe;
 
 public class Main {
 

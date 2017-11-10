@@ -1,6 +1,6 @@
-package fr.iut_nantes.programmation_concurrentielle.miniprojet.exercice1.model;
+package fr.iut_nantes.exercice1.model;
 
-import fr.iut_nantes.programmation_concurrentielle.miniprojet.exercice1.Main;
+import fr.iut_nantes.exercice1.Main;
 
 public class Philosophe extends Thread{
 
