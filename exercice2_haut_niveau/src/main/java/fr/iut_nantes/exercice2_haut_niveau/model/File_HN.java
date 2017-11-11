@@ -27,11 +27,9 @@ public class File_HN<E> extends AbstractFileBloquanteBornee<E> {
      */
     final E[] items = (E[]) new Object[100];
     /**
-     * putptr: indice de l'objet à poser
-     * takeptr: indice de l'objet à prendre
      * count: Compteurs d'objets présents dans la File
      */
-    int putptr, takeptr, count;
+    int count;
 
     public File_HN(int n)
     {
@@ -53,8 +51,8 @@ public class File_HN<E> extends AbstractFileBloquanteBornee<E> {
              */
             while (count == items.length)
                 notFull.await();
-            items[putptr] = e;
-            if (++putptr == items.length) putptr = 0;
+            items[queue] = e;
+            if (++queue == items.length) queue = 0;
             ++count;
             notEmpty.signal();
         } finally {
@@ -77,8 +75,8 @@ public class File_HN<E> extends AbstractFileBloquanteBornee<E> {
              */
             while (count == 0)
                 notEmpty.await();
-            E x = items[takeptr];
-            if (++takeptr == items.length) takeptr = 0;
+            E x = items[tete];
+            if (++tete == items.length) tete = 0;
             --count;
             notFull.signal();
             return x;
