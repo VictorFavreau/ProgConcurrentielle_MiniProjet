@@ -2,8 +2,15 @@ package fr.iut_nantes.exercice1.model;
 
 import fr.iut_nantes.exercice1.Main;
 
+/**
+ * @author Anais BESSON, Victor FAVREAU - LP MiAR Alternance
+ */
+
 public class Moniteur {
 
+    /**
+     * Constante utilisée pour definir la valeur d'une baguette libre
+     */
     private static final int libre = -1;
 
     /**
@@ -37,6 +44,9 @@ public class Moniteur {
     {
         Philosophe philo = Main.table[i];
 
+        /**
+         * Tant que la baguette à gauche du philosophe n'est pas libre et que la baguette à droite n'est pas libre, on attend...
+         */
         while(baguette[i] != libre || baguette[(i+1)%Main.nbPhilosophes] != libre)
         {
             wait();
@@ -48,6 +58,11 @@ public class Moniteur {
 
     }
 
+    /**
+     * Le philosophe pose ses baguettes
+     * @param i: identifiant du philosophe
+     * @throws InterruptedException
+     */
     public synchronized void pose(int i) throws InterruptedException
     {
         Philosophe philo = Main.table[i];

@@ -6,12 +6,21 @@ import fr.iut_nantes.exercice2_bas_niveau.model.File_BN;
 import fr.iut_nantes.exercice2_bas_niveau.model.Producteur;
 import fr.iut_nantes.exercice2_bas_niveau.model.Consommateur;
 
-
+/**
+ * @author Anais BESSON, Victor FAVREAU - LP MiAR Alternance
+ */
 public class Main {
 
-    public static void main(String args[]) {
+    public static void main(String args[]) {
+
+        /**
+         * Creation d'une File_BN (BN -> Bas Niveau)
+         */
         AbstractFileBloquanteBornee<String> f = new File_BN<String>(5);
 
+        /**
+         * Demarrage des Threads
+         */
         new Thread(new Producteur(f, "P1")).start();
         new Thread(new Producteur(f, "P2")).start();
         new Thread(new Producteur(f, "P3")).start();

@@ -1,7 +1,9 @@
 package fr.iut_nantes.exercice2_haut_niveau.model;
 
-public abstract class AbstractFileBloquanteBornee<E>
-{
+/**
+ * @author Anais BESSON, Victor FAVREAU - LP MiAR Alternance
+ */
+public abstract class AbstractFileBloquanteBornee<E> {
 
     E[] tableau;
     int tete;
@@ -11,14 +13,13 @@ public abstract class AbstractFileBloquanteBornee<E>
 
     /**
      * Créer une file de capacité maximale n.
-     *
+     * <p>
      * param n - la capacité maximale de la file.
      * n devrait être supérieur ou égal à 1.
      */
     @SuppressWarnings({"unchecked"})
-    public AbstractFileBloquanteBornee (int n) throws IllegalArgumentException
-    {
-        if(n<1)
+    public AbstractFileBloquanteBornee(int n) throws IllegalArgumentException {
+        if (n < 1)
             throw new
                     IllegalArgumentException(
                     "AbstractFileBloquanteBornee : la capacité de la file doit être > 0");
@@ -36,24 +37,24 @@ public abstract class AbstractFileBloquanteBornee<E>
 
     /**
      * Déposer une référence dans la file.
-     *
+     * <p>
      * Le dépôt est fait en fin de file.
      * L'objet référencé n'est pas copié au moment du dépôt.
      * Le dépôt est bloquant lorsque la file est pleine
-     *
+     * <p>
      * param e - l'élément à ajouter à la file
      */
-    abstract public void deposer (E e) throws InterruptedException;
+    abstract public void deposer(E e) throws InterruptedException;
 
     /**
      * Prendre une référence dans la file.
-     *
+     * <p>
      * La prise est faite en tête de file.
      * L'objet référencé n'est pas copié au moment du dépôt.
      * La prise est bloquante lorsque la file est vide.
-     *
+     * <p>
      * returns la référence de tête de la file
      */
-    abstract public E prendre () throws InterruptedException;
+    abstract public E prendre() throws InterruptedException;
 
 }

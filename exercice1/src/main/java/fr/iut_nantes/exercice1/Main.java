@@ -3,8 +3,16 @@ package fr.iut_nantes.exercice1;
 import fr.iut_nantes.exercice1.model.Moniteur;
 import fr.iut_nantes.exercice1.model.Philosophe;
 
+/**
+ * @author Anais BESSON, Victor FAVREAU - LP MiAR Alternance
+ */
 public class Main {
 
+    /**
+     * nbPhilosophes: nombre de Philosophes autour de la table
+     * table: tableau de Philosophes représentant la table
+     * moniteur: moniteur de l'application
+     */
     public static int nbPhilosophes = 5;
     public static Philosophe[] table;
     public static Moniteur moniteur;
